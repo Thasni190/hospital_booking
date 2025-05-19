@@ -1,0 +1,34 @@
+{% extends "hospital/base.html" %}
+
+{% block content %}
+{% load widget_tweaks %}
+
+<h1 class="text-4xl font-extrabold text-center text-blue-700 mb-10">Book an Appointment</h1>
+
+<div class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-xl border border-gray-100">
+    <form method="POST" class="space-y-8">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}" class="block text-sm font-semibold text-gray-700 mb-1">
+                    {{ field.label }}
+                </label>
+                {{ field|add_class:"w-full px-4 py-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" }}
+
+                {% if field.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ field.errors.0 }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="pt-4 text-center">
+            <button type="submit" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                Book Now
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

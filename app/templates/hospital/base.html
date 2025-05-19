@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>City Hospital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://img.freepik.com/premium-vector/caduceus-logo-vector-health-care-hospital_516670-132.jpg"
+                    alt="Logo" class="w-10 h-10 rounded-full">
+                <span class="text-2xl font-extrabold text-blue-700">City Hospital</span>
+            </div>
+            <ul class="flex space-x-6 text-sm font-medium">
+                <li><a href="{% url 'home' %}" class="hover:text-blue-600 text-xl">Home</a></li>
+                <li><a href="{% url 'booking' %}" class="hover:text-blue-600  text-xl">Booking</a></li>
+                <li><a href="{% url 'departments' %}" class="hover:text-blue-600  text-xl">Departments</a></li>
+                <li><a href="{% url 'about' %}" class="hover:text-blue-600  text-xl">About</a></li>
+                <li><a href="{% url 'doctors' %}" class="hover:text-blue-600 text-xl">Doctors</a></li>
+                <li> <a href="{% url 'contact' %}"
+                        class="bg-blue-600 text-white text-xl px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                        Contact
+                    </a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500 text-sm">
+            © 2025 City Hospital. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
